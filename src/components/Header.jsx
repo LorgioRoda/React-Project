@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import "../styles/components/Header.css"
 
 export default function Header() {
@@ -6,7 +7,9 @@ export default function Header() {
         <div className="Header">
             <h1 className="Header-title">ReactConf Merch</h1>
             <div className="Header-checkout">
-                Checkout
+                <Link to="/checkout">
+                    <i className="fas fa-shopping-basket"/>
+                </Link>
             </div>
         </div>
     )
