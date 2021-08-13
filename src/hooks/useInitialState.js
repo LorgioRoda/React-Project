@@ -6,7 +6,7 @@ export default function useInitialState() {
   const addToCart = (payload) => {
     setState({
       ...state,
-      cart: [...state, payload],
+      cart: [...state.cart, payload],
     });
   };
 
