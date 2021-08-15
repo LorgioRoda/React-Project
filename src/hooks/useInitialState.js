@@ -10,15 +10,15 @@ export default function useInitialState() {
     });
   };
 
-  const remoteToCart = (payload) => {
+  const removeToCart = (payload) => {
     setState({
       ...state,
-      cart: state.cart.filter((items) => items.id !== payload.id),
+      cart: state.cart.filter(item => item.index !== payload.index),
     });
   };
   return {
     addToCart,
-    remoteToCart,
+    removeToCart,
     state,
   };
 }
