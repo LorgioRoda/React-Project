@@ -7,8 +7,11 @@ export default function Products() {
   const { state, addToCart } = useContext(AppContext);
   const { products } = state;
 
-  const handleAddToCart = (product) => {
-     addToCart(product);
+  const handleAddToCart = product => () => {
+    const random = Math.floor(Math.random() * 1000);
+    const newProduct = { ...product, cartId: `${product.id}${random}` };
+    console.log(newProduct);
+    addToCart(newProduct);
   };
 
   return (
@@ -18,7 +21,7 @@ export default function Products() {
           <Product
             key={product.id}
             product={product}
-            handleAddToCart={handleAddToCart}
+            handleAddToCart={handleAddToCart(product)}
           />
         ))}
       </div>

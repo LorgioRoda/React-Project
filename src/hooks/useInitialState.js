@@ -13,7 +13,7 @@ export default function useInitialState() {
   const removeToCart = (payload) => {
     setState({
       ...state,
-      cart: state.cart.filter(item => item.index !== payload.index),
+      cart: state.cart.filter((items) => items.cartId !== payload),
     });
   };
   return {

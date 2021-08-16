@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import '../styles/components/Checkout.css';
 
 export default function Checkout() {
-  const { state, removeFromCart } = useContext(AppContext);
+  const { state, removeToCart } = useContext(AppContext);
   const { cart } = state;
 
   const handleRemove = (product) => () => {
-    removeToCart(product.id);
+    console.log(product)
+    removeToCart(product);
   };
 
   const handleSumTotal = () => {
     const reducer = (accumulator, currentValue) =>
-      accumulator + currentValue.price;
+    accumulator + currentValue.price;
     const sum = cart.reduce(reducer, 0);
     return sum;
   };
@@ -26,7 +27,7 @@ export default function Checkout() {
           <h3>You don't have Wish list 😢</h3>
         )}
         {cart.map((item) => (
-          <div key={cart.id} className="Checkout-item">
+          <div key={item.cartId} className="Checkout-item">
             <div className="Checkout-element">
               <h4>{item.title}</h4>
               <span>{item.price}</span>
@@ -34,7 +35,7 @@ export default function Checkout() {
             <button>
               <i
                 type="buttom"
-                onClick={handleRemove(item.id)}
+                onClick={handleRemove(item.cartId)}
                 className="fas fa-trash-alt"
               />
             </button>
