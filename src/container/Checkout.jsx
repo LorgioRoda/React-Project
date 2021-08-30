@@ -8,7 +8,6 @@ export default function Checkout() {
   const { cart } = state;
 
   const handleRemove = (product) => () => {
-    console.log(product)
     removeToCart(product);
   };
 

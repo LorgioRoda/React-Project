@@ -16,6 +16,12 @@ export default function useInitialState() {
       cart: state.cart.filter((items) => items.cartId !== payload),
     });
   };
+  const addToBuyer = payload => {
+    setState({
+      ...state,
+      buyer: [...state.buyer, payload]
+    })
+  }
   return {
     addToCart,
     removeToCart,
